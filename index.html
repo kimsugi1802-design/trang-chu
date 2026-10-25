@@ -3,49 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wireframe Template - Mai Phương</title>
+    <title>Portfolio của Mai Phương - Phiên Bản Xịn Xò</title>
     <style>
-        /* Phong cách Wireframe: Đen trắng, tối giản, tập trung vào cấu trúc */
-        body {
-            font-family: monospace, sans-serif;
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1), 0 8px 10px -6px rgba(99, 102, 241, 0.1);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            color: #000;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
-        header, footer {
-            border: 2px dashed #000;
-            padding: 20px;
-            text-align: center;
-            background: #fff;
-            margin: 10px;
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
 
-        .wireframe-container {
+        /* Navbar */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            padding: 10px;
-            max-width: 800px;
-            margin: 0 auto;
+            gap: 2.5rem;
         }
 
-        .box {
-            border: 2px solid #000;
-            padding: 30px;
+        /* Section Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-section {
             text-align: center;
-            background: #fff;
-            min-height: 100px;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+            border: none;
         }
 
-        /* Responsive cho Mobile */
-        @media (max-width: 600px) {
-            .wireframe-container {
-                padding: 5px;
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .hero-section h2 {
+            color: white;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            margin-top: 2rem;
+        }
+
+        /* Responsive di động */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
             }
-            .box {
-                padding: 20px;
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -53,26 +194,51 @@
 <body>
 
     <header>
-        <h2>[HEADER / NAVIGATION BAR]</h2>
+        <div class="logo">MaiPhương.dev</div>
+        <nav>
+            <a href="#">Trang chủ</a>
+            <a href="#about">Giới thiệu</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
     </header>
 
-    <div class="wireframe-container">
-        <div class="box">
-            <h1>[HERO SECTION / ẢNH BÌA & TIÊU ĐỀ]</h1>
-            <p>Mô tả ngắn gọn về bản thân hoặc dự án.</p>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="card hero-section">
+            <h1>Portfolio Của Mai Phương</h1>
+            <p>Sinh viên Thương mại điện tử - Đại học Phenikaa. Yêu thích lập trình và thiết kế web!</p>
+            <a href="#contact" class="btn">Liên Hệ Ngay</a>
         </div>
-        <div class="box">
-            <h2>[SECTION 2: THÀNH TỰU / STATS]</h2>
-            <p>Hiển thị các số liệu thống kê hoặc kỹ năng.</p>
+
+        <!-- Section Thành tựu -->
+        <div class="card" id="about">
+            <h2>Giới Thiệu Bản Thân</h2>
+            <p>Trang web này được xây dựng với mục tiêu tối ưu trải nghiệm người dùng, thiết kế hiện đại, responsive mượt mà trên cả điện thoại lẫn máy tính.</p>
         </div>
-        <div class="box">
-            <h2>[SECTION 3: FORM LIÊN HỆ / CONTACT]</h2>
-            <p>[ Ô nhập tên ] [ Ô nhập email ] [ Nút gửi ]</p>
+
+        <!-- Section Liên hệ -->
+        <div class="card" id="contact">
+            <h2>Gửi Tin Nhắn</h2>
+            <form onsubmit="event.preventDefault(); alert('Gửi thành công!');">
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" required placeholder="Nhập tên của bạn...">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Nội dung</label>
+                    <textarea rows="4" required placeholder="Nội dung tin nhắn..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Gửi Đi</button>
+            </form>
         </div>
     </div>
 
     <footer>
-        <p>[FOOTER: Copyright &copy; 2026 Mai Phương]</p>
+        <p>&copy; 2026 Mai Phương. Thiết kế chuẩn responsive và hiện đại.</p>
     </footer>
 
 </body>
